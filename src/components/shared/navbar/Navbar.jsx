@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MyContext } from "../../../contextApi/MyAuthProvider";
+import Register from "../../pages/registration/Register";
 
 
 const Navbar = () => {
