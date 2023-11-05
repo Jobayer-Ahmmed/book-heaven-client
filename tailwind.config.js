@@ -21,7 +21,7 @@ export default {
       },
 
       fontFamily: {
-
+        myCour: "Courgette"
       }
 
 

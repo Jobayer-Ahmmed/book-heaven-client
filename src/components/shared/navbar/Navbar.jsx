@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../../assets/logo/logo.png"
+import logo from "../../../assets/logo/bookhaven.png"
 import { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -79,8 +79,8 @@ const Navbar = () => {
         </div>
         {/* for logo */}
         <div>
-          <span className="text-2xl font-bold">
-            <img src={logo} className=" w-36" /> 
+          <span className="">
+            <img src={logo} className=" " />
           </span>
         </div>
       </div>
