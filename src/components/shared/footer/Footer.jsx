@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
     </div>
   </div>
-  <p className="text-center mt-myMargin">Copyright © 2023 - All right reserved by library</p>
+  <p className="text-center mt-myMargin">Copyright © 2023 - All right reserved by BookHaven</p>
 </footer>
   )
 }
