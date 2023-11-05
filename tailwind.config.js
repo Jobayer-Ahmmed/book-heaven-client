@@ -8,6 +8,8 @@ export default {
     extend: {
       colors: {
         clifford: '#da373d',
+        btnColor: "#ff6347",
+        hoverColor: "#ff4500"
 
   
       },
@@ -15,7 +17,7 @@ export default {
         xPadding: "60px",
         xPadding2: "20px",
         myMargin: "80px",
-        mtMargin: "30px",
+        titleMargin: "30px",
       },
 
       fontFamily: {
