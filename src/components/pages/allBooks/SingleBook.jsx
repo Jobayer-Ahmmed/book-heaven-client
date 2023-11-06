@@ -22,7 +22,7 @@ const SingleBook = ({book}) => {
               readonly
             />
 
-        <Link to="" className="text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 hover:bg-hoverColor active:font-bold mt-2">Details The Book</Link>
+        <Link to={`/details/${name}`} className="text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 hover:bg-hoverColor active:font-bold mt-2">Details The Book</Link>
     </div>
   )
 }

@@ -17,7 +17,7 @@ const AllBooks = () => {
     },[])
 
   return (
-    <div className="flex justify-center px-xPadding my-myMargin">
+    <div className="flex justify-center px-xPadding2 md:px-xPadding my-myMargin">
         <div>
             <h1 className="text-3xl font-bold mb-titleMargin text-center">All Books</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">

@@ -13,7 +13,7 @@ const Employees = () => {
     },[])
     
   return (
-    <div className="flex justify-center mb-myMargin px-xPadding">
+    <div className="flex justify-center mb-myMargin px-xPadding2 md:px-xPadding">
         <div>
             <div>
                 <h1 className="text-3xl font-bold mb-titleMargin text-center">Employee History</h1>
