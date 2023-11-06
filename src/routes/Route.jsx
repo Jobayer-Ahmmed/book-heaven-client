@@ -3,6 +3,9 @@ import Root from "../layouts/Root";
 import Home from "../components/pages/home/Home";
 import Register from "../components/pages/registration/Register";
 import Login from "../components/pages/login/Login";
+import AllBooks from "../components/pages/allBooks/AllBooks";
+import axios from "axios";
+import URL from "../url/URL";
 
 
 const router = createBrowserRouter([
@@ -21,6 +24,11 @@ const router = createBrowserRouter([
             {
                 path:"/login",
                 element:<Login/>
+            },
+            {
+                path:"/allBooks",
+                element:<AllBooks/>,
+                // loader: ()=> axios.get(`${URL}/books`)
             }
         ]
     }
