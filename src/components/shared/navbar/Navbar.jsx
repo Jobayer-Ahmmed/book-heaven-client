@@ -12,7 +12,6 @@ import { MyContext } from "../../../contextApi/MyAuthProvider";
 const Navbar = () => {
   const { myUser, myLogOut } = useContext(MyContext);
   const email = myUser?.email
-  console.log(email)
   const [theme, setTheme] = useState("light")
   
   const navlinks = <>

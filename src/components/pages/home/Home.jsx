@@ -1,5 +1,6 @@
 import Banner from "./banner/Banner"
 import Categories from "./category/Categories"
+import Employees from "./employee/Employees"
 
 
 
@@ -9,6 +10,7 @@ const Home = () => {
     <div>
       <Banner/>
       <Categories/>
+      <Employees/>
     </div>
   )
 }

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const Category = ({Acategory}) => {
     const {image, category} = Acategory
-    console.log(image, category)
   return (
     <div className="w-full bg-gray-200 p-10">
         <img src={image} alt="" className="w-full h-60 md:h-72" />
