@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Rating from 'react-rating';
+import {BsStar} from "react-icons/bs"
+import {BsStarFill} from "react-icons/bs"
 
 const SingleBook = ({book}) => {
     const {image, name, author_name, category, rating} = book
@@ -12,7 +15,13 @@ const SingleBook = ({book}) => {
             <p className='font-medium mb-4'>{author_name}</p>
         </div>
         <h3 className='text-xl font-medium'>{category}</h3>
-        <p>{rating}</p>
+        <Rating
+              initialRating={rating}
+              emptySymbol={<BsStar/>}
+              fullSymbol={<BsStarFill/>}
+              readonly
+            />
+
         <Link to="" className="text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 hover:bg-hoverColor active:font-bold mt-2">Details The Book</Link>
     </div>
   )
