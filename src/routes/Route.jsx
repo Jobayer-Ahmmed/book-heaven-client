@@ -6,6 +6,7 @@ import Login from "../components/pages/login/Login";
 import AllBooks from "../components/pages/allBooks/AllBooks";
 import axios from "axios";
 import URL from "../url/URL";
+import CategoricalBooks from "../components/pages/home/category/categoricalBook/CategoricalBooks";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
                 path:"/allBooks",
                 element:<AllBooks/>,
                 // loader: ()=> axios.get(`${URL}/books`)
+            },
+            {
+                path:"books/:category",
+                element:<CategoricalBooks/>
             }
         ]
     }
