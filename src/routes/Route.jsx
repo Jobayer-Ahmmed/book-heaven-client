@@ -33,7 +33,8 @@ const router = createBrowserRouter([
             },
             {
                 path:"books/:category",
-                element:<CategoricalBooks/>
+                element:<CategoricalBooks/>,
+                loader:({params})=> axios.get(`${URL}/books/${params.category}`)
             }
         ]
     }
