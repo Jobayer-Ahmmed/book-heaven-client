@@ -4,8 +4,11 @@ import Rating from 'react-rating';
 import {BsStar} from "react-icons/bs"
 import {BsStarFill} from "react-icons/bs"
 
+
 const SingleBook = ({book}) => {
     const {image, name, author_name, category, rating} = book
+
+
     
   return (
     <div className='flex flex-col justify-between  bg-base-300 p-4'>

@@ -1,20 +1,13 @@
-// import { useLoaderData } from "react-router-dom"
 
-import axios from "axios"
-import { useEffect, useState } from "react"
-import URL from "../../../url/URL"
 import SingleBook from "./SingleBook"
+import { useLoaderData } from "react-router-dom"
 
 
 const AllBooks = () => {
-    // const books = useLoaderData()
-    // console.log(books)
-    const [books, setBooks] = useState([])
+    const data = useLoaderData()
+    const books = data.data
+    console.log("i am  in allBooks")
 
-    useEffect(()=>{
-        axios.get(`${URL}/books`)
-        .then(res=>setBooks(res.data))
-    },[])
 
   return (
     <div className="flex justify-center px-xPadding2 md:px-xPadding my-myMargin">

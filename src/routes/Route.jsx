@@ -31,12 +31,12 @@ const router = createBrowserRouter([
             {
                 path:"/allBooks",
                 element:<AllBooks/>,
-                // loader: ()=> axios.get(`${URL}/books`)
+                loader: async()=> axios.get(`${URL}/books`)
             },
             {
                 path:"books/:category",
                 element:<CategoricalBooks/>,
-                loader:({params})=> axios.get(`${URL}/books/${params.category}`)
+                loader: async({params})=> axios.get(`${URL}/books/${params.category}`)
             },
             {
                 path:"/addBook",
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             {
                 path:"/details/:name",
                 element:<BookDetails/>,
-                loader:({params})=> axios.get(`${URL}/details/${params.name}`)
+                loader: async({params})=> axios.get(`${URL}/details/${params.name}`)
             }
         ]
     }
