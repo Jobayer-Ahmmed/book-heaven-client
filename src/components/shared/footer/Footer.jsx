@@ -14,7 +14,7 @@ const Footer = () => {
         <h3 className="text-xl font-bold mb-3">Usefull Links</h3>
               <li className="hover:underline text-lg mb-2"><Link to="/addBook">Add Book</Link></li>
               <li className="hover:underline text-lg mb-2"><Link to="/allBooks">All Books</Link></li>
-              <li className="hover:underline text-lg"><Link to="/borrowedBooks">Borrowed Books</Link></li>
+              <li className="hover:underline text-lg"><Link to="/borrow">Borrowed Books</Link></li>
       </ul>
       <div>
         <h3 className="text-xl font-bold mb-6">Find Us On</h3>

@@ -9,6 +9,7 @@ import URL from "../url/URL";
 import CategoricalBooks from "../components/pages/home/category/categoricalBook/CategoricalBooks";
 import AddBook from "../components/pages/addBook/AddBook";
 import BookDetails from "../components/shared/bookDetails/BookDetails";
+import BorrowBooks from "../components/pages/borrowBook/BorrowBooks";
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
                 path:"/details/:name",
                 element:<BookDetails/>,
                 loader: async({params})=> axios.get(`${URL}/details/${params.name}`)
+            },
+            {
+                path:"/borrow",
+                element:<BorrowBooks/>,
+                loader: async()=>axios.get(`${URL}/borrow`)
             }
         ]
     }
