@@ -11,7 +11,7 @@ import { MyContext } from "../../../contextApi/MyAuthProvider";
 
 const Navbar = () => {
   const { myUser, myLogOut } = useContext(MyContext);
-  // const email = myUser?.email
+  const email = myUser?.email
   const [theme, setTheme] = useState("light")
   
   const navlinks = <>
@@ -25,7 +25,7 @@ const Navbar = () => {
               <NavLink to="/allBooks">All Books</NavLink>
             </li>
             <li>
-              <NavLink to="/borrow">Borrowed Books</NavLink>
+              <NavLink to={`/borrow/${email}`}>Borrowed Books</NavLink>
             </li>
   </>
 

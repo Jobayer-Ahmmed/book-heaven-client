@@ -17,7 +17,7 @@ const BookDetails = () => {
 
     
 
-    const borrowedDate = moment().format("YYYY-M-D")
+    const borrowedDate = moment().format("YYYY-M-DD")
     console.log(borrowedDate)
 
     const {image, name, author_name, category, rating} = data

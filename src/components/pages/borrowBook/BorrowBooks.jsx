@@ -6,10 +6,10 @@ const BorrowBooks = () => {
     const {data} = useLoaderData()
 
   return (
-    <div className="flex justify-center px-xPadding2 md:px-xPadding my-myMargin">
-        <div>
+    <div className="w-full flex justify-center px-xPadding2 md:px-xPadding my-myMargin">
+        <div className="w-full">
             <h1 className="text-3xl font-bold mb-titleMargin text-center">You have borrowed below book(s)</h1>
-            <div>
+            <div className="w-full">
                 {
                     data?.map(book=><BorrowBook key={book._id} book={book}/>)
                 }

@@ -60,7 +60,7 @@ const Login = () => {
             <h1  className=" text-4xl font-medium my-xPadding2">Login Now</h1>
             <h3  className="text-red-500 text-xl my-mtMargin">{message}</h3>
             <form onSubmit={handleLogin}>
-                <input className="my-2 w-4/5 h-10 pl-5 rounded" type="text" placeholder="Email" name="email" required /> <br />
+                <input className="my-2 w-4/5 h-10 pl-5 rounded" type="email" placeholder="Email" name="email" required /> <br />
                 <input className="w-4/5 h-10 pl-5 rounded" type="password" placeholder="Password" name="password" required/> <br />
                 <input  className="mt-4 rounded-sm px-12  py-2 text-2xl text-white tracking-wider font-medium bg-btnColor  text-textColor cursor-pointer hover:bg-hoverColor active:font-bold" type="submit" value="Login" />
             </form>

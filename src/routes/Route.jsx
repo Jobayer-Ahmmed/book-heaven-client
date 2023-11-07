@@ -49,9 +49,9 @@ const router = createBrowserRouter([
                 loader: async({params})=> axios.get(`${URL}/details/${params.name}`)
             },
             {
-                path:"/borrow",
+                path:"/borrow/:email",
                 element:<BorrowBooks/>,
-                loader: async()=>axios.get(`${URL}/borrow`)
+                loader: async({params})=>axios.get(`${URL}/borrow/${params.email}`)
             }
         ]
     }
