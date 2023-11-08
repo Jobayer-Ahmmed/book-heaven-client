@@ -7,7 +7,7 @@ import Support from "./support/Support"
 
 
 const Home = () => {
-  console.log("I am in home")
+
   return (
     <div>
       <Banner/>

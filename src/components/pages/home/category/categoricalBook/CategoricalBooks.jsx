@@ -4,10 +4,9 @@ import SingleBook from "../../../allBooks/SingleBook"
 
 const CategoricalBooks = () => {
   const {category} = useParams()
-  console.log(category)
   const data = useLoaderData()
   const books = data.data
-  console.log(books)
+
   return (
     <div className="flex justify-center px-xPadding2 md:px-xPadding my-myMargin">
         <div>
