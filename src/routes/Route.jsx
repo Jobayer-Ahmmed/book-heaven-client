@@ -11,6 +11,7 @@ import AddBook from "../components/pages/addBook/AddBook";
 import BookDetails from "../components/shared/bookDetails/BookDetails";
 import BorrowBooks from "../components/pages/borrowBook/BorrowBooks";
 import ErrorPage from "../components/pages/errorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -33,26 +34,26 @@ const router = createBrowserRouter([
             },
             {
                 path:"/allBooks",
-                element:<AllBooks/>,
+                element:<PrivateRoute><AllBooks/></PrivateRoute>,
                 loader: async()=> axios.get(`${URL}/books`)
             },
             {
                 path:"books/:category",
-                element:<CategoricalBooks/>,
+                element:<PrivateRoute><CategoricalBooks/></PrivateRoute>,
                 loader: async({params})=> axios.get(`${URL}/books/${params.category}`)
             },
             {
                 path:"/addBook",
-                element:<AddBook/>
+                element:<PrivateRoute><AddBook/></PrivateRoute>
             },
             {
                 path:"/details/:name",
-                element:<BookDetails/>,
+                element:<PrivateRoute><BookDetails/></PrivateRoute>,
                 loader: async({params})=> axios.get(`${URL}/details/${params.name}`)
             },
             {
                 path:"/borrow",
-                element:<BorrowBooks/>
+                element:<PrivateRoute><BorrowBooks/></PrivateRoute>
             }
         ]
     }
