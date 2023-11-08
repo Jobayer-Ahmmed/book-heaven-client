@@ -20,7 +20,7 @@ const BookDetails = () => {
     const borrowedDate = moment().format("YYYY-M-DD")
 
 
-    const {_id,image, name, author_name, category, rating, quantity, description} = data
+    const {_id,image, name, author_name, category, rating, quantity, description, read} = data
     console.log(quantity)
     const email = myUser?.email
     const username = myUser?.displayName
@@ -117,7 +117,7 @@ const BookDetails = () => {
         </div>
         <div className="flex flex-col md:flex-row gap-10 mt-titleMargin">
             <button onClick={()=>document.getElementById('my_modal_5').showModal()} to={`/details/${name}`} className={` text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 active:bg-hoverColor hover:rounded-xl mt-2`} disabled={isBoolean}>Borrow</button>
-            <Link to={`/details/${name}`} className="text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 active:bg-hoverColor hover:rounded-xl mt-2">Read</Link>
+            <Link to={`/read/${_id}`} className="text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 active:bg-hoverColor hover:rounded-xl mt-2">Read</Link>
         </div>
     </div>
 

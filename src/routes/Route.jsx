@@ -12,6 +12,7 @@ import BookDetails from "../components/shared/bookDetails/BookDetails";
 import BorrowBooks from "../components/pages/borrowBook/BorrowBooks";
 import ErrorPage from "../components/pages/errorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import Read from "../components/shared/bookDetails/Read";
 
 
 const router = createBrowserRouter([
@@ -35,7 +36,9 @@ const router = createBrowserRouter([
             {
                 path:"/allBooks",
                 element:<PrivateRoute><AllBooks/></PrivateRoute>,
-                loader: async()=> axios.get(`${URL}/books`)
+                loader: async()=> axios.get(`${URL}/books`, {
+                    withCredentials:true
+                })
             },
             {
                 path:"books/:category",
@@ -54,6 +57,11 @@ const router = createBrowserRouter([
             {
                 path:"/borrow",
                 element:<PrivateRoute><BorrowBooks/></PrivateRoute>
+            },
+            {
+                path:"/read/:id",
+                element:<Read/>,
+                loader: async ({params})=> axios.get(`${URL}/read/${params.id}`)
             }
         ]
     }

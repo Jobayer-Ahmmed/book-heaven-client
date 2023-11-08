@@ -5,12 +5,12 @@ import 'react-toastify/dist/ReactToastify.css';
 const Support = () => {
   const handleDonate =e=>{
     e.preventDefault()
-    const forFormReset = e.target
-    const form  = new FormData(e.currentTarget)
-    const email =form.get("email")
-    const password = form.get("password")
-    const name = form.get("name")
-    const photo = form.get("photo")
+    // const forFormReset = e.target
+    // const form  = new FormData(e.currentTarget)
+    // const email =form.get("email")
+    // const password = form.get("password")
+    // const name = form.get("name")
+    // const photo = form.get("photo")
 
     toast.success("Thanks for your donation")
   }
@@ -27,7 +27,8 @@ const Support = () => {
                   <input className="w-4/5 h-10 pl-5 rounded" type="text" placeholder="Name" name="name" /><br />
                   <input className="my-2 w-4/5 h-10 pl-5 rounded" type="address" placeholder="address" name="address"  /> <br />
                   <textarea  className="w-4/5 pl-5 rounded" name="message" placeholder="Give  a message" rows="10"></textarea> <br />
-                  <input className="my-2 w-4/5 h-10 pl-5 rounded" type="number" placeholder="Money in Dollar" name="money" required/><br/>
+                  <input className="mt-2 w-4/5 h-10 pl-5 rounded" type="number" placeholder="Credit or Debit Card Number" name="card" required/><br/>
+                  <input className="my-2 w-4/5 h-10 pl-5 rounded" type="number" placeholder="Amount ($)" name="money" required/><br/>
                   <input  className="mt-4 rounded-sm px-12  py-2 text-2xl text-white tracking-wider font-medium bg-btnColor  text-textColor cursor-pointer hover:bg-hoverColor active:font-bold" type="submit" value="Donate Now" />
                 </form>
             </div>
