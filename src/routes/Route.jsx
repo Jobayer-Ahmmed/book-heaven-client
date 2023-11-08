@@ -60,7 +60,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/read/:id",
-                element:<Read/>,
+                element:<PrivateRoute><Read/></PrivateRoute>,
                 loader: async ({params})=> axios.get(`${URL}/read/${params.id}`)
             }
         ]
