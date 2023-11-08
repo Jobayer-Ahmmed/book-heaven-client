@@ -10,12 +10,14 @@ import CategoricalBooks from "../components/pages/home/category/categoricalBook/
 import AddBook from "../components/pages/addBook/AddBook";
 import BookDetails from "../components/shared/bookDetails/BookDetails";
 import BorrowBooks from "../components/pages/borrowBook/BorrowBooks";
+import ErrorPage from "../components/pages/errorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path:"/",
         element:<Root/>,
+        errorElement:<ErrorPage/>,
         children:[
             {
                 path:"/",
@@ -49,9 +51,8 @@ const router = createBrowserRouter([
                 loader: async({params})=> axios.get(`${URL}/details/${params.name}`)
             },
             {
-                path:"/borrow/:email",
-                element:<BorrowBooks/>,
-                loader: async({params})=>axios.get(`${URL}/borrow/${params.email}`)
+                path:"/borrow",
+                element:<BorrowBooks/>
             }
         ]
     }

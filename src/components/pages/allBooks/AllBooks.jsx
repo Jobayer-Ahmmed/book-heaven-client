@@ -6,7 +6,6 @@ import { useLoaderData } from "react-router-dom"
 const AllBooks = () => {
     const data = useLoaderData()
     const books = data.data
-    console.log("i am  in allBooks")
 
 
   return (

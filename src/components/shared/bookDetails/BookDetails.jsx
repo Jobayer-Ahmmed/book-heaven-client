@@ -1,5 +1,5 @@
-import { useContext} from "react"
-import { Link, useLoaderData } from "react-router-dom"
+import { useContext, useEffect, useState} from "react"
+import { Link, useLoaderData, useNavigate } from "react-router-dom"
 import { MyContext } from "../../../contextApi/MyAuthProvider"
 import axios from "axios"
 import URL from "../../../url/URL"
@@ -12,36 +12,78 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const BookDetails = () => {
+    const [bookNames, setBookNames] = useState([])
+    const [isBoolean, setIsBoolean] = useState(false)
     const {myUser} = useContext(MyContext)
-     const {data} = useLoaderData()
-
-    
-
+    const {data} = useLoaderData()
+    const navigate = useNavigate()
     const borrowedDate = moment().format("YYYY-M-DD")
-    console.log(borrowedDate)
 
-    const {image, name, author_name, category, rating, quantity, description} = data
 
+    const {_id,image, name, author_name, category, rating, quantity, description} = data
+    console.log(quantity)
     const email = myUser?.email
     const username = myUser?.displayName
+    const [available, setAvailable] = useState(quantity-1)
+    
 
+    useEffect(()=>{
+      axios.get(`${URL}/borrowBook/${email}`)
+      .then((res)=>setBookNames(res.data))
+    },[])
+    
+    const borrowedBook = bookNames.find(book=>book.name === name)
+    let checkBook = borrowedBook?.name
+
+    useEffect(()=>{
+      if(quantity){
+        setIsBoolean(false)
+        console.log("if is working")
+      }
+      else{
+        setIsBoolean(true)
+        console.log("else is working")
+      }
+    },[quantity, available])
 
     const handleBorrow=(e)=>{
         e.preventDefault()
-        const form = new FormData(e.currentTarget)
-        const returnDate = form.get("date")
-        console.log(returnDate)
 
-        axios.post(`${URL}/borrow`,{
-            username,
-            email,
-            name,
-            category,
-            image,
-            borrowedDate,
-            returnDate
-        })
-        .then(()=> toast.success("Please, return the book on time"))
+          const form = new FormData(e.currentTarget)
+          const returnDate = form.get("date")
+          console.log(returnDate)
+
+
+  
+          axios.post(`${URL}/borrow`,{
+              id:_id,
+              username,
+              email,
+              name,
+              quantity:quantity-1,
+              category,
+              image,
+              borrowedDate,
+              returnDate
+          })
+          .then(()=>{
+            navigate("/borrow")
+            toast.success("Please, return the book on time")
+          })
+
+          axios.put(`${URL}/books/${_id}`, {
+            myQuantity:available
+          })
+          .then((res)=>{
+            console.log(res)
+            console.log("put successfull")
+          })
+          .catch((err)=>{
+            console.log(err)
+          }
+          )
+
+
     }
 
 
@@ -69,11 +111,12 @@ const BookDetails = () => {
     </div>
     <div>
         <div>
-            <p>{quantity}</p>
-            <p>{description}</p>
+            <h4 className="text-xl  font-medium">The Book About on </h4>
+            <p className="text-xl">{description}</p>
+            <p className="text-xl  font-medium my-10 ">Available Book : {quantity}</p>
         </div>
         <div className="flex flex-col md:flex-row gap-10 mt-titleMargin">
-            <Link onClick={()=>document.getElementById('my_modal_5').showModal()} to={`/details/${name}`} className="text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 active:bg-hoverColor hover:rounded-xl mt-2">Borrow</Link>
+            <button onClick={()=>document.getElementById('my_modal_5').showModal()} to={`/details/${name}`} className={` text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 active:bg-hoverColor hover:rounded-xl mt-2`} disabled={isBoolean}>Borrow</button>
             <Link to={`/details/${name}`} className="text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 active:bg-hoverColor hover:rounded-xl mt-2">Read</Link>
         </div>
     </div>
@@ -83,7 +126,9 @@ const BookDetails = () => {
     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">
 
-    <form onSubmit={handleBorrow}>
+    {
+      checkBook? 'You have alredy borrowed this book':
+      <form onSubmit={handleBorrow}>
         <label>Username : </label>
         <input type="text" value={username} readOnly/><br />
         <label>Email : </label>
@@ -92,6 +137,7 @@ const BookDetails = () => {
         <input   className="mb-4"   type="date" name="date" required/> <br />
         <input className="text-center text-white text-lg font-semibold bg-btnColor px-8 py-2 hover:bg-hoverColor active:font-bold mt-2" type="submit" value="Borrow Now" />
     </form>
+    }
 
     <div className="modal-action">
     <form method="dialog">
