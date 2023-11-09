@@ -43,8 +43,16 @@ const Login = () => {
         if(getEmail){
             myLogin(email, password)
             .then(()=>{
-                toast.success("Login Successfull")
-                navigate(location?.state ? location?.state: '/')
+
+
+                const aUser = {email}
+                axios.post(`http://localhost:5000/jwt`, aUser, {withCredentials: true})
+                .then((res)=>{
+                    console.log(res.data)
+                    toast.success("Login Successfull")
+                    navigate(location?.state ? location?.state: '/')
+                })
+
             })
             .catch(()=>setMessage("Invalid password"))
         }
