@@ -46,7 +46,7 @@ const Login = () => {
 
 
                 const aUser = {email}
-                axios.post(`http://localhost:5000/jwt`, aUser, {withCredentials: true})
+                axios.post(`${URL}/jwt`, aUser, {withCredentials: true})
                 .then((res)=>{
                     console.log(res.data)
                     toast.success("Login Successfull")

@@ -1,5 +1,11 @@
 # Feauture of the project (BookHeaven   assignment_category_0008)
     
+    Banner:
+        Using Swiper for banner
+
+    Librarian:
+        email : librarian@librarian.com
+        password : 1234@A
     User Authentication:
         User accounts
         Login and registration

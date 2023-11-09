@@ -27,6 +27,12 @@ const Navbar = () => {
             <li>
               <NavLink to={`/borrow`}>Borrowed Books</NavLink>
             </li>
+            {
+              email==="librarian@librarian.com" &&            <li>
+              <NavLink to={ `/librarian`}>Librarian</NavLink>
+            </li>
+            }
+
   </>
 
   const handleToggle=e=>{

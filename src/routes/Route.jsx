@@ -14,6 +14,7 @@ import ErrorPage from "../components/pages/errorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import Read from "../components/shared/bookDetails/Read";
 import MyDocument from "../components/shared/bookDetails/MyDocument";
+import Librarian from "../components/pages/librarian/Librarian";
 
 
 const router = createBrowserRouter([
@@ -64,11 +65,12 @@ const router = createBrowserRouter([
                 element:<PrivateRoute><Read/></PrivateRoute>,
                 loader: async ({params})=> axios.get(`${URL}/read/${params.id}`)
             },
-            // {
-            //     path:"/pdf/:id",
-            //     element:<MyDocument/>,
-            //     loader: async ({params})=> axios.get(`${URL}/read/${params.id}`)
-            // }
+            {
+                path:"/librarian",
+                element:<PrivateRoute><Librarian/></PrivateRoute>,
+                loader: async()=> axios.get(`${URL}/librarian`)
+            }
+    
 
               
         ]
