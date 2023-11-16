@@ -20,7 +20,7 @@ const BookDetails = () => {
     const borrowedDate = moment().format("YYYY-M-DD")
 
 
-    const {_id,image, name, author_name, category, rating, quantity, description, read} = data
+    const {_id,image, name, author_name, category, rating, quantity, description} = data
     console.log(quantity)
     const email = myUser?.email
     const username = myUser?.displayName

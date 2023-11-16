@@ -13,7 +13,12 @@ import BorrowBooks from "../components/pages/borrowBook/BorrowBooks";
 import ErrorPage from "../components/pages/errorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import Read from "../components/shared/bookDetails/Read";
+import EditBook from "../components/pages/librarian/EditBook";
+import Book from "../components/pages/librarian/Book";
 import Librarian from "../components/pages/librarian/Librarian";
+
+
+
 
 
 const router = createBrowserRouter([
@@ -37,9 +42,7 @@ const router = createBrowserRouter([
             {
                 path:"/allBooks",
                 element:<PrivateRoute><AllBooks/></PrivateRoute>,
-                loader: async()=> axios.get(`${URL}/books`, {
-                    withCredentials:true
-                })
+                loader: async()=> fetch(`${URL}/books`)
             },
             {
                 path:"books/:category",
@@ -64,11 +67,22 @@ const router = createBrowserRouter([
                 element:<PrivateRoute><Read/></PrivateRoute>,
                 loader: async ({params})=> axios.get(`${URL}/read/${params.id}`)
             },
+
             {
                 path:"/librarian",
-                element:<PrivateRoute><Librarian/></PrivateRoute>,
-                loader: async()=> axios.get(`${URL}/librarian`)
-            }
+                element:<PrivateRoute><Librarian/></PrivateRoute>
+            },
+            {
+                path:"/edit/:id",
+                element:<PrivateRoute><EditBook/></PrivateRoute>,
+                loader: async({params})=>axios.get(`${URL}/edit/${params.id}`)
+            },
+            {
+                path:"/book",
+                element:<Book/>,
+                loader: async()=> axios.get(`${URL}/book`)
+            },
+
     
 
               

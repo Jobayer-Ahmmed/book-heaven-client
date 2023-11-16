@@ -14,17 +14,18 @@ const Login = () => {
     const [emails, setEmails] = useState([])
     const location = useLocation()
     const navigate = useNavigate()
+    
 
     useEffect(()=>{
         axios.get(`${URL}/user`)
         .then(res=>setEmails(res.data))
     },[])
-    console.log(emails)
+
     const handleGoogle=()=>{
         googleLogin()
-        .then((res)=>{
-          console.log(res)
+        .then(()=>{
           toast.success("You have logged with Google successfully")
+          navigate("/")
         })
         .catch(err=>console.log(err.message))
     }
@@ -41,18 +42,11 @@ const Login = () => {
         setMessage('')
 
         if(getEmail){
+  
             myLogin(email, password)
             .then(()=>{
-
-
-                const aUser = {email}
-                axios.post(`${URL}/jwt`, aUser, {withCredentials: true})
-                .then((res)=>{
-                    console.log(res.data)
-                    toast.success("Login Successfull")
-                    navigate(location?.state ? location?.state: '/')
-                })
-
+                toast.success("Login Successfull")
+                navigate(location?.state ? location?.state: '/')
             })
             .catch(()=>setMessage("Invalid password"))
         }

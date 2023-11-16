@@ -8,6 +8,10 @@ import Support from "./support/Support"
 
 const Home = () => {
 
+  // const absuloteCategory=(a)=>{
+
+  // }
+
   return (
     <div>
       <Banner/>

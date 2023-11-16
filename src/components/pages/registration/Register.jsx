@@ -19,9 +19,9 @@ const Register = () => {
 
     const handleGoogle=()=>{
       googleLogin()
-      .then((res)=>{
-        console.log(res)
+      .then(()=>{
         toast.success("You have logged with Google successfully")
+        navigate("/")
       })
       .catch(err=>console.log(err.message))
   }
