@@ -1,4 +1,4 @@
-# Feauture of the project (BookHeaven   assignment_category_0008)
+# Feauture of the project (BookHeaven)
     
     Banner:
         Using Swiper for banner
